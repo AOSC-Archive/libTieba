@@ -24,7 +24,7 @@ _init_urlencode() {
   done
 }
 
-urlencode() {
+shell_urlencode() {
   local inp="$1"
   local len="${#inp}"
   local n=0
@@ -41,8 +41,7 @@ urlencode() {
   done
 }
 
-_init_urlencode # call only once
-
 perl_urlencode() {
 echo -n "$1" | perl -MURI::Escape -ne 'print uri_escape($_)'
 }
+alias urlencode='perl_urlencode'
